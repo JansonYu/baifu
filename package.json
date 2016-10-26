@@ -1,0 +1,14 @@
+{
+  "name": "baifu_web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "f2e-conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<title>柏富毛纺-产品</title>
+
+	<link rel="stylesheet" href="./css/slide.css">
+
+	<link rel="stylesheet" href="./css/base.css">
+
+	<script src="./js/jquery1.7.1.js"></script>
+	<script src="./js/main.js"></script>
+
+	<style>
+
+		.header{
+
+			position: relative;
+
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+<?php include 'block/header.php'?>
+
+<div class="unit product-pre">
+
+	<div class="inner"><ul class="pre">
+
+		<li><a href="#" class="active"><i></i>巴素兰羊毛系列 </a></li>
+
+		<li><a href="product-maoni.php"><i></i>毛呢 / 双面呢系列</a></li>
+
+		<li><a href="product-meilinuo.php"><i></i>美丽诺纯羊毛系列</a></li>
+
+		<li><a href="product-turong.php"><i></i> 兔绒混纺纱</a></li>
+
+	</ul></div>
+
+</div>
+
+<div class="unit product-banner pro1">
+
+	<div class="inner">
+
+		<p class="stitle">巴素兰羊毛系列<br>
+
+		Basolan Wool Series</p>
+
+
+		<p class="s">以先进的巴素兰工艺处理，产品具有蓬松、柔软性，色泽艳丽，纤维强力损伤小的优点。<br>	
+现货72色48NM/2巴素兰羊毛系列。同时，欢迎定纺。</p>
+
+		<p class="phone"><i></i>86-0575-88336268</p>
+
+		<a href="contact.php" class="ask">产品咨询</a>
+
+	</div>
+
+</div>
+
+<div class="unit product-list">
+
+	<div class="inner">
+
+		<p class="title">颜色分类</p>
+
+		<?php 
+
+			require "admin/sql_con.php";
+
+			$sql_con=new Sql_con();
+
+			$filepath="admin/images/";
+
+			$result=$sql_con->selectProductByCategory("basulan");
+
+			while($product=$result->fetch_array()){
+
+				echo '<div class="p-card">
+
+						<p class="img"><img src="'.
+
+						$filepath.$product["image_path"].'" alt=""></p>
+
+						<div class="msg">
+
+						<p class="t">'.$product["model_id"].'</p>
+
+						<p>'.$product["name"].'<br>现存货量：'.$product["amount"].'公斤</p>
+
+						</div>
+
+					</div>';
+
+			}
+
+		?>
+
+	</div>
+
+	<!-- <a href="javascript:;" class="more">查看更多</a> -->
+
+</div>
+
+
+
+<?php include 'block/footer.php'?>
+
+</body>
+
+</html>
